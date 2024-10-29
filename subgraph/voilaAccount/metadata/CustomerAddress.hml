@@ -1,0 +1,446 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CustomerAddress
+  fields:
+    - name: address
+      type: Varchar
+    - name: category
+      type: Varchar
+    - name: createdAt
+      type: Timestamptz!
+    - name: createdBy
+      type: Varchar
+    - name: customerId
+      type: Int4
+    - name: deletedAt
+      type: Timestamptz
+    - name: deletedBy
+      type: Varchar
+    - name: districtId
+      type: Int4
+    - name: districtName
+      type: Varchar
+    - name: id
+      type: Int4!
+    - name: isDefault
+      type: Bool
+    - name: latitude
+      type: Float8
+    - name: longitude
+      type: Float8
+    - name: name
+      type: Varchar
+    - name: note
+      type: Varchar
+    - name: phone
+      type: Varchar
+    - name: pinpointAddress
+      type: Varchar
+    - name: pinpointTitle
+      type: Varchar
+    - name: provinceId
+      type: Int4
+    - name: provinceName
+      type: Varchar
+    - name: shopifyAddressId
+      type: Int8
+    - name: subDistrictId
+      type: Int4
+    - name: subDistrictName
+      type: Varchar
+    - name: updatedAt
+      type: Timestamptz
+    - name: updatedBy
+      type: Varchar
+    - name: zip
+      type: Int4
+  graphql:
+    typeName: CustomerAddress
+    inputTypeName: CustomerAddressInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: customer_address
+      fieldMapping:
+        address:
+          column:
+            name: address
+        category:
+          column:
+            name: category
+        createdAt:
+          column:
+            name: created_at
+        createdBy:
+          column:
+            name: created_by
+        customerId:
+          column:
+            name: customer_id
+        deletedAt:
+          column:
+            name: deleted_at
+        deletedBy:
+          column:
+            name: deleted_by
+        districtId:
+          column:
+            name: district_id
+        districtName:
+          column:
+            name: district_name
+        id:
+          column:
+            name: id
+        isDefault:
+          column:
+            name: is_default
+        latitude:
+          column:
+            name: latitude
+        longitude:
+          column:
+            name: longitude
+        name:
+          column:
+            name: name
+        note:
+          column:
+            name: note
+        phone:
+          column:
+            name: phone
+        pinpointAddress:
+          column:
+            name: pinpoint_address
+        pinpointTitle:
+          column:
+            name: pinpoint_title
+        provinceId:
+          column:
+            name: province_id
+        provinceName:
+          column:
+            name: province_name
+        shopifyAddressId:
+          column:
+            name: shopify_address_id
+        subDistrictId:
+          column:
+            name: sub_district_id
+        subDistrictName:
+          column:
+            name: sub_district_name
+        updatedAt:
+          column:
+            name: updated_at
+        updatedBy:
+          column:
+            name: updated_by
+        zip:
+          column:
+            name: zip
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CustomerAddress
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - address
+          - category
+          - createdAt
+          - createdBy
+          - customerId
+          - deletedAt
+          - deletedBy
+          - districtId
+          - districtName
+          - id
+          - isDefault
+          - latitude
+          - longitude
+          - name
+          - note
+          - phone
+          - pinpointAddress
+          - pinpointTitle
+          - provinceId
+          - provinceName
+          - shopifyAddressId
+          - subDistrictId
+          - subDistrictName
+          - updatedAt
+          - updatedBy
+          - zip
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CustomerAddressBoolExp
+  operand:
+    object:
+      type: CustomerAddress
+      comparableFields:
+        - fieldName: address
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: category
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: createdAt
+          booleanExpressionType: TimestamptzBoolExp
+        - fieldName: createdBy
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: customerId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: deletedAt
+          booleanExpressionType: TimestamptzBoolExp
+        - fieldName: deletedBy
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: districtId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: districtName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: id
+          booleanExpressionType: Int4BoolExp
+        - fieldName: isDefault
+          booleanExpressionType: BoolBoolExp
+        - fieldName: latitude
+          booleanExpressionType: Float8BoolExp
+        - fieldName: longitude
+          booleanExpressionType: Float8BoolExp
+        - fieldName: name
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: note
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: phone
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: pinpointAddress
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: pinpointTitle
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: provinceId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: provinceName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: shopifyAddressId
+          booleanExpressionType: Int8BoolExp
+        - fieldName: subDistrictId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: subDistrictName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: updatedAt
+          booleanExpressionType: TimestamptzBoolExp
+        - fieldName: updatedBy
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: zip
+          booleanExpressionType: Int4BoolExp
+      comparableRelationships:
+        - relationshipName: customer
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CustomerAddressBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CustomerAddressAggExp
+  operand:
+    object:
+      aggregatedType: CustomerAddress
+      aggregatableFields:
+        - fieldName: address
+          aggregateExpression: VarcharAggExp
+        - fieldName: category
+          aggregateExpression: VarcharAggExp
+        - fieldName: createdAt
+          aggregateExpression: TimestamptzAggExp
+        - fieldName: createdBy
+          aggregateExpression: VarcharAggExp
+        - fieldName: customerId
+          aggregateExpression: Int4AggExp
+        - fieldName: deletedAt
+          aggregateExpression: TimestamptzAggExp
+        - fieldName: deletedBy
+          aggregateExpression: VarcharAggExp
+        - fieldName: districtId
+          aggregateExpression: Int4AggExp
+        - fieldName: districtName
+          aggregateExpression: VarcharAggExp
+        - fieldName: id
+          aggregateExpression: Int4AggExp
+        - fieldName: isDefault
+          aggregateExpression: BoolAggExp
+        - fieldName: latitude
+          aggregateExpression: Float8AggExp
+        - fieldName: longitude
+          aggregateExpression: Float8AggExp
+        - fieldName: name
+          aggregateExpression: VarcharAggExp
+        - fieldName: note
+          aggregateExpression: VarcharAggExp
+        - fieldName: phone
+          aggregateExpression: VarcharAggExp
+        - fieldName: pinpointAddress
+          aggregateExpression: VarcharAggExp
+        - fieldName: pinpointTitle
+          aggregateExpression: VarcharAggExp
+        - fieldName: provinceId
+          aggregateExpression: Int4AggExp
+        - fieldName: provinceName
+          aggregateExpression: VarcharAggExp
+        - fieldName: shopifyAddressId
+          aggregateExpression: Int8AggExp
+        - fieldName: subDistrictId
+          aggregateExpression: Int4AggExp
+        - fieldName: subDistrictName
+          aggregateExpression: VarcharAggExp
+        - fieldName: updatedAt
+          aggregateExpression: TimestamptzAggExp
+        - fieldName: updatedBy
+          aggregateExpression: VarcharAggExp
+        - fieldName: zip
+          aggregateExpression: Int4AggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CustomerAddressAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: CustomerAddress
+  objectType: CustomerAddress
+  source:
+    dataConnectorName: postgres_connector
+    collection: customer_address
+  filterExpressionType: CustomerAddressBoolExp
+  aggregateExpression: CustomerAddressAggExp
+  orderableFields:
+    - fieldName: address
+      orderByDirections:
+        enableAll: true
+    - fieldName: category
+      orderByDirections:
+        enableAll: true
+    - fieldName: createdAt
+      orderByDirections:
+        enableAll: true
+    - fieldName: createdBy
+      orderByDirections:
+        enableAll: true
+    - fieldName: customerId
+      orderByDirections:
+        enableAll: true
+    - fieldName: deletedAt
+      orderByDirections:
+        enableAll: true
+    - fieldName: deletedBy
+      orderByDirections:
+        enableAll: true
+    - fieldName: districtId
+      orderByDirections:
+        enableAll: true
+    - fieldName: districtName
+      orderByDirections:
+        enableAll: true
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: isDefault
+      orderByDirections:
+        enableAll: true
+    - fieldName: latitude
+      orderByDirections:
+        enableAll: true
+    - fieldName: longitude
+      orderByDirections:
+        enableAll: true
+    - fieldName: name
+      orderByDirections:
+        enableAll: true
+    - fieldName: note
+      orderByDirections:
+        enableAll: true
+    - fieldName: phone
+      orderByDirections:
+        enableAll: true
+    - fieldName: pinpointAddress
+      orderByDirections:
+        enableAll: true
+    - fieldName: pinpointTitle
+      orderByDirections:
+        enableAll: true
+    - fieldName: provinceId
+      orderByDirections:
+        enableAll: true
+    - fieldName: provinceName
+      orderByDirections:
+        enableAll: true
+    - fieldName: shopifyAddressId
+      orderByDirections:
+        enableAll: true
+    - fieldName: subDistrictId
+      orderByDirections:
+        enableAll: true
+    - fieldName: subDistrictName
+      orderByDirections:
+        enableAll: true
+    - fieldName: updatedAt
+      orderByDirections:
+        enableAll: true
+    - fieldName: updatedBy
+      orderByDirections:
+        enableAll: true
+    - fieldName: zip
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: customerAddress
+    selectUniques:
+      - queryRootField: customerAddressById
+        uniqueIdentifier:
+          - id
+    orderByExpressionType: CustomerAddressOrderBy
+    filterInputTypeName: CustomerAddressFilterInput
+    aggregate:
+      queryRootField: customerAddressAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CustomerAddress
+  permissions:
+    - role: admin
+      select:
+        filter: null
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: customer
+  sourceType: CustomerAddress
+  target:
+    model:
+      name: Customer
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: customerId
+      target:
+        modelField:
+          - fieldName: id
+

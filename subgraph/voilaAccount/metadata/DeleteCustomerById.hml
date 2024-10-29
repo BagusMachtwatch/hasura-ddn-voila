@@ -1,0 +1,72 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteCustomerByIdResponse
+  description: Responses from the 'delete_customer_by_id' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Customer!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteCustomerByIdResponse
+    inputTypeName: DeleteCustomerByIdResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: delete_customer_by_id_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteCustomerByIdResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteCustomerById
+  outputType: DeleteCustomerByIdResponse!
+  arguments:
+    - name: keyId
+      type: Int4!
+    - name: preCheck
+      type: CustomerBoolExp
+      description: Delete permission predicate over the 'customer' collection
+  source:
+    dataConnectorName: postgres_connector
+    dataConnectorCommand:
+      procedure: delete_customer_by_id
+    argumentMapping:
+      keyId: key_id
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteCustomerById
+    rootFieldKind: Mutation
+  description: Delete any row on the 'customer' collection using the 'id' key
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteCustomerById
+  permissions:
+    - role: admin
+      allowExecution: true
+

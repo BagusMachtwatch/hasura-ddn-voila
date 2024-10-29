@@ -1,0 +1,405 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Customer
+  fields:
+    - name: createdAt
+      type: Timestamptz!
+    - name: createdBy
+      type: Varchar
+    - name: deletedAt
+      type: Timestamptz
+    - name: deletedBy
+      type: Varchar
+    - name: dob
+      type: Date
+    - name: email
+      type: Varchar
+    - name: firstName
+      type: Varchar
+    - name: gender
+      type: Varchar
+    - name: id
+      type: Int4!
+    - name: isMember
+      type: Bool
+    - name: isNewslatterSubscribed
+      type: Bool
+    - name: lastName
+      type: Varchar
+    - name: note
+      type: Varchar
+    - name: phone
+      type: Varchar
+    - name: shopifyId
+      type: Int8
+    - name: shopifyTags
+      type: "[Varchar]"
+    - name: source
+      type: Varchar
+    - name: tags
+      type: "[Varchar]"
+    - name: updatedAt
+      type: Timestamptz
+    - name: updatedBy
+      type: Varchar
+  graphql:
+    typeName: Customer
+    inputTypeName: CustomerInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: customer
+      fieldMapping:
+        createdAt:
+          column:
+            name: created_at
+        createdBy:
+          column:
+            name: created_by
+        deletedAt:
+          column:
+            name: deleted_at
+        deletedBy:
+          column:
+            name: deleted_by
+        dob:
+          column:
+            name: dob
+        email:
+          column:
+            name: email
+        firstName:
+          column:
+            name: first_name
+        gender:
+          column:
+            name: gender
+        id:
+          column:
+            name: id
+        isMember:
+          column:
+            name: is_member
+        isNewslatterSubscribed:
+          column:
+            name: is_newslatter_subscribed
+        lastName:
+          column:
+            name: last_name
+        note:
+          column:
+            name: note
+        phone:
+          column:
+            name: phone
+        shopifyId:
+          column:
+            name: shopify_id
+        shopifyTags:
+          column:
+            name: shopify_tags
+        source:
+          column:
+            name: source
+        tags:
+          column:
+            name: tags
+        updatedAt:
+          column:
+            name: updated_at
+        updatedBy:
+          column:
+            name: updated_by
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Customer
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - createdAt
+          - createdBy
+          - deletedAt
+          - deletedBy
+          - dob
+          - email
+          - firstName
+          - gender
+          - id
+          - isMember
+          - isNewslatterSubscribed
+          - lastName
+          - note
+          - phone
+          - shopifyId
+          - shopifyTags
+          - source
+          - tags
+          - updatedAt
+          - updatedBy
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CustomerBoolExp
+  operand:
+    object:
+      type: Customer
+      comparableFields:
+        - fieldName: createdAt
+          booleanExpressionType: TimestamptzBoolExp
+        - fieldName: createdBy
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: deletedAt
+          booleanExpressionType: TimestamptzBoolExp
+        - fieldName: deletedBy
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: dob
+          booleanExpressionType: DateBoolExp
+        - fieldName: email
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: firstName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: gender
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: id
+          booleanExpressionType: Int4BoolExp
+        - fieldName: isMember
+          booleanExpressionType: BoolBoolExp
+        - fieldName: isNewslatterSubscribed
+          booleanExpressionType: BoolBoolExp
+        - fieldName: lastName
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: note
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: phone
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: shopifyId
+          booleanExpressionType: Int8BoolExp
+        - fieldName: source
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: updatedAt
+          booleanExpressionType: TimestamptzBoolExp
+        - fieldName: updatedBy
+          booleanExpressionType: VarcharBoolExp
+      comparableRelationships:
+        - relationshipName: accounts
+        - relationshipName: customerAddresses
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CustomerBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CustomerAggExp
+  operand:
+    object:
+      aggregatedType: Customer
+      aggregatableFields:
+        - fieldName: createdAt
+          aggregateExpression: TimestamptzAggExp
+        - fieldName: createdBy
+          aggregateExpression: VarcharAggExp
+        - fieldName: deletedAt
+          aggregateExpression: TimestamptzAggExp
+        - fieldName: deletedBy
+          aggregateExpression: VarcharAggExp
+        - fieldName: dob
+          aggregateExpression: DateAggExp
+        - fieldName: email
+          aggregateExpression: VarcharAggExp
+        - fieldName: firstName
+          aggregateExpression: VarcharAggExp
+        - fieldName: gender
+          aggregateExpression: VarcharAggExp
+        - fieldName: id
+          aggregateExpression: Int4AggExp
+        - fieldName: isMember
+          aggregateExpression: BoolAggExp
+        - fieldName: isNewslatterSubscribed
+          aggregateExpression: BoolAggExp
+        - fieldName: lastName
+          aggregateExpression: VarcharAggExp
+        - fieldName: note
+          aggregateExpression: VarcharAggExp
+        - fieldName: phone
+          aggregateExpression: VarcharAggExp
+        - fieldName: shopifyId
+          aggregateExpression: Int8AggExp
+        - fieldName: source
+          aggregateExpression: VarcharAggExp
+        - fieldName: updatedAt
+          aggregateExpression: TimestamptzAggExp
+        - fieldName: updatedBy
+          aggregateExpression: VarcharAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CustomerAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Customer
+  objectType: Customer
+  source:
+    dataConnectorName: postgres_connector
+    collection: customer
+  filterExpressionType: CustomerBoolExp
+  aggregateExpression: CustomerAggExp
+  orderableFields:
+    - fieldName: createdAt
+      orderByDirections:
+        enableAll: true
+    - fieldName: createdBy
+      orderByDirections:
+        enableAll: true
+    - fieldName: deletedAt
+      orderByDirections:
+        enableAll: true
+    - fieldName: deletedBy
+      orderByDirections:
+        enableAll: true
+    - fieldName: dob
+      orderByDirections:
+        enableAll: true
+    - fieldName: email
+      orderByDirections:
+        enableAll: true
+    - fieldName: firstName
+      orderByDirections:
+        enableAll: true
+    - fieldName: gender
+      orderByDirections:
+        enableAll: true
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: isMember
+      orderByDirections:
+        enableAll: true
+    - fieldName: isNewslatterSubscribed
+      orderByDirections:
+        enableAll: true
+    - fieldName: lastName
+      orderByDirections:
+        enableAll: true
+    - fieldName: note
+      orderByDirections:
+        enableAll: true
+    - fieldName: phone
+      orderByDirections:
+        enableAll: true
+    - fieldName: shopifyId
+      orderByDirections:
+        enableAll: true
+    - fieldName: shopifyTags
+      orderByDirections:
+        enableAll: true
+    - fieldName: source
+      orderByDirections:
+        enableAll: true
+    - fieldName: tags
+      orderByDirections:
+        enableAll: true
+    - fieldName: updatedAt
+      orderByDirections:
+        enableAll: true
+    - fieldName: updatedBy
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: customer
+    selectUniques:
+      - queryRootField: customerById
+        uniqueIdentifier:
+          - id
+    orderByExpressionType: CustomerOrderBy
+    filterInputTypeName: CustomerFilterInput
+    aggregate:
+      queryRootField: customerAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Customer
+  permissions:
+    - role: admin
+      select:
+        filter: null
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: accounts
+  sourceType: Customer
+  target:
+    model:
+      name: Account
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: AccountAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: id
+      target:
+        modelField:
+          - fieldName: customerId
+  graphql:
+    aggregateFieldName: accountsAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: customerAddresses
+  sourceType: Customer
+  target:
+    model:
+      name: CustomerAddress
+      relationshipType: Array
+      aggregate:
+        aggregateExpression: CustomerAddressAggExp
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: id
+      target:
+        modelField:
+          - fieldName: customerId
+  graphql:
+    aggregateFieldName: customerAddressesAggregate
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: customerLogs
+  sourceType: Customer
+  target:
+    model:
+      name: CustomerLog
+      subgraph: voilaLog
+      relationshipType: Array
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: id
+      target:
+        modelField:
+          - fieldName: customerId

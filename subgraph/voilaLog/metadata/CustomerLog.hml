@@ -1,0 +1,424 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CustomerLogDataAfter
+  fields:
+    - name: category
+      type: String
+    - name: firstName
+      type: String
+    - name: isMember
+      type: Bool_1
+    - name: lastName
+      type: String
+    - name: phone
+      type: String
+    - name: shopifyAddressId
+      type: Long
+  graphql:
+    typeName: CustomerLogDataAfter
+    inputTypeName: CustomerLogDataAfterInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo_connector
+      dataConnectorObjectType: customer_log_data_after
+      fieldMapping:
+        category:
+          column:
+            name: category
+        firstName:
+          column:
+            name: first_name
+        isMember:
+          column:
+            name: is_member
+        lastName:
+          column:
+            name: last_name
+        phone:
+          column:
+            name: phone
+        shopifyAddressId:
+          column:
+            name: shopify_address_id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CustomerLogDataAfter
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - category
+          - firstName
+          - isMember
+          - lastName
+          - phone
+          - shopifyAddressId
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CustomerLogDataBefore
+  fields:
+    - name: category
+      type: String
+    - name: firstName
+      type: String
+    - name: isMember
+      type: Bool_1
+    - name: lastName
+      type: String
+    - name: phone
+      type: String
+    - name: shopifyAddressId
+      type: Null!
+  graphql:
+    typeName: CustomerLogDataBefore
+    inputTypeName: CustomerLogDataBeforeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo_connector
+      dataConnectorObjectType: customer_log_data_before
+      fieldMapping:
+        category:
+          column:
+            name: category
+        firstName:
+          column:
+            name: first_name
+        isMember:
+          column:
+            name: is_member
+        lastName:
+          column:
+            name: last_name
+        phone:
+          column:
+            name: phone
+        shopifyAddressId:
+          column:
+            name: shopify_address_id
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CustomerLogDataBefore
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - category
+          - firstName
+          - isMember
+          - lastName
+          - phone
+          - shopifyAddressId
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CustomerLogData
+  fields:
+    - name: after
+      type: CustomerLogDataAfter
+    - name: before
+      type: CustomerLogDataBefore
+    - name: id
+      type: ExtendedJson
+    - name: orderSource
+      type: String
+    - name: totalPrice
+      type: Int
+  graphql:
+    typeName: CustomerLogData
+    inputTypeName: CustomerLogDataInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo_connector
+      dataConnectorObjectType: customer_log_data
+      fieldMapping:
+        after:
+          column:
+            name: after
+        before:
+          column:
+            name: before
+        id:
+          column:
+            name: id
+        orderSource:
+          column:
+            name: order_source
+        totalPrice:
+          column:
+            name: total_price
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CustomerLogData
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - after
+          - before
+          - id
+          - orderSource
+          - totalPrice
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CustomerLog
+  fields:
+    - name: id
+      type: ObjectId!
+    - name: action
+      type: String
+    - name: createdAt
+      type: Date_1
+    - name: createdBy
+      type: String
+    - name: customerId
+      type: ExtendedJson
+    - name: data
+      type: CustomerLogData
+  graphql:
+    typeName: CustomerLog
+    inputTypeName: CustomerLogInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: mongo_connector
+      dataConnectorObjectType: customer_log
+      fieldMapping:
+        id:
+          column:
+            name: _id
+        action:
+          column:
+            name: action
+        createdAt:
+          column:
+            name: created_at
+        createdBy:
+          column:
+            name: created_by
+        customerId:
+          column:
+            name: customer_id
+        data:
+          column:
+            name: data
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CustomerLog
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - id
+          - action
+          - createdAt
+          - createdBy
+          - customerId
+          - data
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CustomerLogDataAfterBoolExp
+  operand:
+    object:
+      type: CustomerLogDataAfter
+      comparableFields:
+        - fieldName: category
+          booleanExpressionType: StringBoolExp
+        - fieldName: firstName
+          booleanExpressionType: StringBoolExp
+        - fieldName: isMember
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: lastName
+          booleanExpressionType: StringBoolExp
+        - fieldName: phone
+          booleanExpressionType: StringBoolExp
+        - fieldName: shopifyAddressId
+          booleanExpressionType: LongBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CustomerLogDataAfterBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CustomerLogDataBeforeBoolExp
+  operand:
+    object:
+      type: CustomerLogDataBefore
+      comparableFields:
+        - fieldName: category
+          booleanExpressionType: StringBoolExp
+        - fieldName: firstName
+          booleanExpressionType: StringBoolExp
+        - fieldName: isMember
+          booleanExpressionType: BoolBoolExp_1
+        - fieldName: lastName
+          booleanExpressionType: StringBoolExp
+        - fieldName: phone
+          booleanExpressionType: StringBoolExp
+        - fieldName: shopifyAddressId
+          booleanExpressionType: NullBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CustomerLogDataBeforeBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CustomerLogDataBoolExp
+  operand:
+    object:
+      type: CustomerLogData
+      comparableFields:
+        - fieldName: after
+          booleanExpressionType: CustomerLogDataAfterBoolExp
+        - fieldName: before
+          booleanExpressionType: CustomerLogDataBeforeBoolExp
+        - fieldName: id
+          booleanExpressionType: ExtendedJsonBoolExp
+        - fieldName: orderSource
+          booleanExpressionType: StringBoolExp
+        - fieldName: totalPrice
+          booleanExpressionType: IntBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CustomerLogDataBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CustomerLogBoolExp
+  operand:
+    object:
+      type: CustomerLog
+      comparableFields:
+        - fieldName: id
+          booleanExpressionType: ObjectIdBoolExp
+        - fieldName: action
+          booleanExpressionType: StringBoolExp
+        - fieldName: createdAt
+          booleanExpressionType: DateBoolExp_1
+        - fieldName: createdBy
+          booleanExpressionType: StringBoolExp
+        - fieldName: customerId
+          booleanExpressionType: ExtendedJsonBoolExp
+        - fieldName: data
+          booleanExpressionType: CustomerLogDataBoolExp
+      comparableRelationships: []
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CustomerLogBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CustomerLogAggExp
+  operand:
+    object:
+      aggregatedType: CustomerLog
+      aggregatableFields:
+        - fieldName: id
+          aggregateExpression: ObjectIdAggExp
+        - fieldName: action
+          aggregateExpression: StringAggExp
+        - fieldName: createdAt
+          aggregateExpression: DateAggExp_1
+        - fieldName: createdBy
+          aggregateExpression: StringAggExp
+        - fieldName: customerId
+          aggregateExpression: ExtendedJsonAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: CustomerLogAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: CustomerLog
+  objectType: CustomerLog
+  source:
+    dataConnectorName: mongo_connector
+    collection: customer_log
+  filterExpressionType: CustomerLogBoolExp
+  aggregateExpression: CustomerLogAggExp
+  orderableFields:
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: action
+      orderByDirections:
+        enableAll: true
+    - fieldName: createdAt
+      orderByDirections:
+        enableAll: true
+    - fieldName: createdBy
+      orderByDirections:
+        enableAll: true
+    - fieldName: customerId
+      orderByDirections:
+        enableAll: true
+    - fieldName: data
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: customerLog
+    selectUniques:
+      - queryRootField: customerLogById
+        uniqueIdentifier:
+          - id
+    orderByExpressionType: CustomerLogOrderBy
+    filterInputTypeName: CustomerLogFilterInput
+    aggregate:
+      queryRootField: customerLogAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CustomerLog
+  permissions:
+    - role: admin
+      select:
+        filter: null
+

@@ -1,0 +1,329 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: Account
+  fields:
+    - name: createdAt
+      type: Timestamptz!
+    - name: createdBy
+      type: Varchar
+    - name: customerId
+      type: Int4!
+    - name: deletedAt
+      type: Timestamptz
+    - name: deletedBy
+      type: Varchar
+    - name: id
+      type: Uuid!
+    - name: isOnboarded
+      type: Bool
+    - name: isSuspended
+      type: Bool
+    - name: isVerified
+      type: Bool
+    - name: memberId
+      type: Varchar
+    - name: ssoProviders
+      type: Jsonb
+    - name: suspendedAt
+      type: Timestamptz
+    - name: suspendedBy
+      type: Varchar
+    - name: suspendedReason
+      type: Varchar
+    - name: updatedAt
+      type: Timestamptz
+    - name: updatedBy
+      type: Varchar
+    - name: verifiedAt
+      type: Timestamptz
+  graphql:
+    typeName: Account
+    inputTypeName: AccountInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: account
+      fieldMapping:
+        createdAt:
+          column:
+            name: created_at
+        createdBy:
+          column:
+            name: created_by
+        customerId:
+          column:
+            name: customer_id
+        deletedAt:
+          column:
+            name: deleted_at
+        deletedBy:
+          column:
+            name: deleted_by
+        id:
+          column:
+            name: id
+        isOnboarded:
+          column:
+            name: is_onboarded
+        isSuspended:
+          column:
+            name: is_suspended
+        isVerified:
+          column:
+            name: is_verified
+        memberId:
+          column:
+            name: member_id
+        ssoProviders:
+          column:
+            name: sso_providers
+        suspendedAt:
+          column:
+            name: suspended_at
+        suspendedBy:
+          column:
+            name: suspended_by
+        suspendedReason:
+          column:
+            name: suspended_reason
+        updatedAt:
+          column:
+            name: updated_at
+        updatedBy:
+          column:
+            name: updated_by
+        verifiedAt:
+          column:
+            name: verified_at
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: Account
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - createdAt
+          - createdBy
+          - customerId
+          - deletedAt
+          - deletedBy
+          - id
+          - isOnboarded
+          - isSuspended
+          - isVerified
+          - memberId
+          - ssoProviders
+          - suspendedAt
+          - suspendedBy
+          - suspendedReason
+          - updatedAt
+          - updatedBy
+          - verifiedAt
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: AccountBoolExp
+  operand:
+    object:
+      type: Account
+      comparableFields:
+        - fieldName: createdAt
+          booleanExpressionType: TimestamptzBoolExp
+        - fieldName: createdBy
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: customerId
+          booleanExpressionType: Int4BoolExp
+        - fieldName: deletedAt
+          booleanExpressionType: TimestamptzBoolExp
+        - fieldName: deletedBy
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: id
+          booleanExpressionType: UuidBoolExp
+        - fieldName: isOnboarded
+          booleanExpressionType: BoolBoolExp
+        - fieldName: isSuspended
+          booleanExpressionType: BoolBoolExp
+        - fieldName: isVerified
+          booleanExpressionType: BoolBoolExp
+        - fieldName: memberId
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: ssoProviders
+          booleanExpressionType: JsonbBoolExp
+        - fieldName: suspendedAt
+          booleanExpressionType: TimestamptzBoolExp
+        - fieldName: suspendedBy
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: suspendedReason
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: updatedAt
+          booleanExpressionType: TimestamptzBoolExp
+        - fieldName: updatedBy
+          booleanExpressionType: VarcharBoolExp
+        - fieldName: verifiedAt
+          booleanExpressionType: TimestamptzBoolExp
+      comparableRelationships:
+        - relationshipName: customer
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: AccountBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: AccountAggExp
+  operand:
+    object:
+      aggregatedType: Account
+      aggregatableFields:
+        - fieldName: createdAt
+          aggregateExpression: TimestamptzAggExp
+        - fieldName: createdBy
+          aggregateExpression: VarcharAggExp
+        - fieldName: customerId
+          aggregateExpression: Int4AggExp
+        - fieldName: deletedAt
+          aggregateExpression: TimestamptzAggExp
+        - fieldName: deletedBy
+          aggregateExpression: VarcharAggExp
+        - fieldName: id
+          aggregateExpression: UuidAggExp
+        - fieldName: isOnboarded
+          aggregateExpression: BoolAggExp
+        - fieldName: isSuspended
+          aggregateExpression: BoolAggExp
+        - fieldName: isVerified
+          aggregateExpression: BoolAggExp
+        - fieldName: memberId
+          aggregateExpression: VarcharAggExp
+        - fieldName: ssoProviders
+          aggregateExpression: JsonbAggExp
+        - fieldName: suspendedAt
+          aggregateExpression: TimestamptzAggExp
+        - fieldName: suspendedBy
+          aggregateExpression: VarcharAggExp
+        - fieldName: suspendedReason
+          aggregateExpression: VarcharAggExp
+        - fieldName: updatedAt
+          aggregateExpression: TimestamptzAggExp
+        - fieldName: updatedBy
+          aggregateExpression: VarcharAggExp
+        - fieldName: verifiedAt
+          aggregateExpression: TimestamptzAggExp
+  count:
+    enable: true
+  graphql:
+    selectTypeName: AccountAggExp
+
+---
+kind: Model
+version: v1
+definition:
+  name: Account
+  objectType: Account
+  source:
+    dataConnectorName: postgres_connector
+    collection: account
+  filterExpressionType: AccountBoolExp
+  aggregateExpression: AccountAggExp
+  orderableFields:
+    - fieldName: createdAt
+      orderByDirections:
+        enableAll: true
+    - fieldName: createdBy
+      orderByDirections:
+        enableAll: true
+    - fieldName: customerId
+      orderByDirections:
+        enableAll: true
+    - fieldName: deletedAt
+      orderByDirections:
+        enableAll: true
+    - fieldName: deletedBy
+      orderByDirections:
+        enableAll: true
+    - fieldName: id
+      orderByDirections:
+        enableAll: true
+    - fieldName: isOnboarded
+      orderByDirections:
+        enableAll: true
+    - fieldName: isSuspended
+      orderByDirections:
+        enableAll: true
+    - fieldName: isVerified
+      orderByDirections:
+        enableAll: true
+    - fieldName: memberId
+      orderByDirections:
+        enableAll: true
+    - fieldName: ssoProviders
+      orderByDirections:
+        enableAll: true
+    - fieldName: suspendedAt
+      orderByDirections:
+        enableAll: true
+    - fieldName: suspendedBy
+      orderByDirections:
+        enableAll: true
+    - fieldName: suspendedReason
+      orderByDirections:
+        enableAll: true
+    - fieldName: updatedAt
+      orderByDirections:
+        enableAll: true
+    - fieldName: updatedBy
+      orderByDirections:
+        enableAll: true
+    - fieldName: verifiedAt
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: account
+    selectUniques:
+      - queryRootField: accountById
+        uniqueIdentifier:
+          - id
+    orderByExpressionType: AccountOrderBy
+    filterInputTypeName: AccountFilterInput
+    aggregate:
+      queryRootField: accountAggregate
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: Account
+  permissions:
+    - role: admin
+      select:
+        filter: null
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: customer
+  sourceType: Account
+  target:
+    model:
+      name: Customer
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath:
+          - fieldName: customerId
+      target:
+        modelField:
+          - fieldName: id
+

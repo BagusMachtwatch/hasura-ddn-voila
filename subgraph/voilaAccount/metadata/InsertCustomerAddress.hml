@@ -1,0 +1,252 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCustomerAddressObject
+  fields:
+    - name: address
+      type: Varchar
+    - name: category
+      type: Varchar
+    - name: createdAt
+      type: Timestamptz
+    - name: createdBy
+      type: Varchar
+    - name: customerId
+      type: Int4
+    - name: deletedAt
+      type: Timestamptz
+    - name: deletedBy
+      type: Varchar
+    - name: districtId
+      type: Int4
+    - name: districtName
+      type: Varchar
+    - name: id
+      type: Int4
+    - name: isDefault
+      type: Bool
+    - name: latitude
+      type: Float8
+    - name: longitude
+      type: Float8
+    - name: name
+      type: Varchar
+    - name: note
+      type: Varchar
+    - name: phone
+      type: Varchar
+    - name: pinpointAddress
+      type: Varchar
+    - name: pinpointTitle
+      type: Varchar
+    - name: provinceId
+      type: Int4
+    - name: provinceName
+      type: Varchar
+    - name: shopifyAddressId
+      type: Int8
+    - name: subDistrictId
+      type: Int4
+    - name: subDistrictName
+      type: Varchar
+    - name: updatedAt
+      type: Timestamptz
+    - name: updatedBy
+      type: Varchar
+    - name: zip
+      type: Int4
+  graphql:
+    typeName: InsertCustomerAddressObject
+    inputTypeName: InsertCustomerAddressObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: insert_customer_address_object
+      fieldMapping:
+        address:
+          column:
+            name: address
+        category:
+          column:
+            name: category
+        createdAt:
+          column:
+            name: created_at
+        createdBy:
+          column:
+            name: created_by
+        customerId:
+          column:
+            name: customer_id
+        deletedAt:
+          column:
+            name: deleted_at
+        deletedBy:
+          column:
+            name: deleted_by
+        districtId:
+          column:
+            name: district_id
+        districtName:
+          column:
+            name: district_name
+        id:
+          column:
+            name: id
+        isDefault:
+          column:
+            name: is_default
+        latitude:
+          column:
+            name: latitude
+        longitude:
+          column:
+            name: longitude
+        name:
+          column:
+            name: name
+        note:
+          column:
+            name: note
+        phone:
+          column:
+            name: phone
+        pinpointAddress:
+          column:
+            name: pinpoint_address
+        pinpointTitle:
+          column:
+            name: pinpoint_title
+        provinceId:
+          column:
+            name: province_id
+        provinceName:
+          column:
+            name: province_name
+        shopifyAddressId:
+          column:
+            name: shopify_address_id
+        subDistrictId:
+          column:
+            name: sub_district_id
+        subDistrictName:
+          column:
+            name: sub_district_name
+        updatedAt:
+          column:
+            name: updated_at
+        updatedBy:
+          column:
+            name: updated_by
+        zip:
+          column:
+            name: zip
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCustomerAddressObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - address
+          - category
+          - createdAt
+          - createdBy
+          - customerId
+          - deletedAt
+          - deletedBy
+          - districtId
+          - districtName
+          - id
+          - isDefault
+          - latitude
+          - longitude
+          - name
+          - note
+          - phone
+          - pinpointAddress
+          - pinpointTitle
+          - provinceId
+          - provinceName
+          - shopifyAddressId
+          - subDistrictId
+          - subDistrictName
+          - updatedAt
+          - updatedBy
+          - zip
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCustomerAddressResponse
+  description: Responses from the 'insert_customer_address' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CustomerAddress!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertCustomerAddressResponse
+    inputTypeName: InsertCustomerAddressResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: insert_customer_address_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCustomerAddressResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertCustomerAddress
+  outputType: InsertCustomerAddressResponse!
+  arguments:
+    - name: objects
+      type: "[InsertCustomerAddressObject!]!"
+    - name: postCheck
+      type: CustomerAddressBoolExp
+      description: Insert permission predicate over the 'customer_address' collection
+  source:
+    dataConnectorName: postgres_connector
+    dataConnectorCommand:
+      procedure: insert_customer_address
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertCustomerAddress
+    rootFieldKind: Mutation
+  description: Insert into the customer_address table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertCustomerAddress
+  permissions:
+    - role: admin
+      allowExecution: true
+

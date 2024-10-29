@@ -1,0 +1,17 @@
+services:
+  voilalog_mongo_connector:
+    build:
+      context: .
+      dockerfile: .hasura-connector/Dockerfile.mongo_connector
+    environment:
+      HASURA_SERVICE_TOKEN_SECRET: $VOILALOG_MONGO_CONNECTOR_HASURA_SERVICE_TOKEN_SECRET
+      MONGODB_DATABASE_URI: $VOILALOG_MONGO_CONNECTOR_MONGODB_DATABASE_URI
+      OTEL_EXPORTER_OTLP_ENDPOINT: $VOILALOG_MONGO_CONNECTOR_OTEL_EXPORTER_OTLP_ENDPOINT
+      OTEL_SERVICE_NAME: $VOILALOG_MONGO_CONNECTOR_OTEL_SERVICE_NAME
+    extra_hosts:
+      - local.hasura.dev:host-gateway
+    ports:
+      - mode: ingress
+        protocol: tcp
+        published: "7746"
+        target: 8080

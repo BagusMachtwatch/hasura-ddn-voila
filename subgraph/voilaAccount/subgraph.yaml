@@ -1,0 +1,18 @@
+kind: Subgraph
+version: v2
+definition:
+  name: voilaAccount
+  generator:
+    rootPath: .
+  includePaths:
+    - metadata
+  envMapping:
+    VOILAACCOUNT_POSTGRES_CONNECTOR_AUTHORIZATION_HEADER:
+      fromEnv: VOILAACCOUNT_POSTGRES_CONNECTOR_AUTHORIZATION_HEADER
+    VOILAACCOUNT_POSTGRES_CONNECTOR_READ_URL:
+      fromEnv: VOILAACCOUNT_POSTGRES_CONNECTOR_READ_URL
+    VOILAACCOUNT_POSTGRES_CONNECTOR_WRITE_URL:
+      fromEnv: VOILAACCOUNT_POSTGRES_CONNECTOR_WRITE_URL
+  connectors:
+    - path: connector/postgres_connector/connector.yaml
+      connectorLinkName: postgres_connector

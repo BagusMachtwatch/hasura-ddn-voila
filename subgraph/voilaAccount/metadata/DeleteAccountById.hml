@@ -1,0 +1,72 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: DeleteAccountByIdResponse
+  description: Responses from the 'delete_account_by_id' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Account!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: DeleteAccountByIdResponse
+    inputTypeName: DeleteAccountByIdResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: delete_account_by_id_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: DeleteAccountByIdResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: DeleteAccountById
+  outputType: DeleteAccountByIdResponse!
+  arguments:
+    - name: keyId
+      type: Uuid!
+    - name: preCheck
+      type: AccountBoolExp
+      description: Delete permission predicate over the 'account' collection
+  source:
+    dataConnectorName: postgres_connector
+    dataConnectorCommand:
+      procedure: delete_account_by_id
+    argumentMapping:
+      keyId: key_id
+      preCheck: pre_check
+  graphql:
+    rootFieldName: deleteAccountById
+    rootFieldKind: Mutation
+  description: Delete any row on the 'account' collection using the 'id' key
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: DeleteAccountById
+  permissions:
+    - role: admin
+      allowExecution: true
+

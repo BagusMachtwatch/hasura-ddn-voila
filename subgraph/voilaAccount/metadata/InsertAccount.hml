@@ -1,0 +1,198 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertAccountObject
+  fields:
+    - name: createdAt
+      type: Timestamptz
+    - name: createdBy
+      type: Varchar
+    - name: customerId
+      type: Int4!
+    - name: deletedAt
+      type: Timestamptz
+    - name: deletedBy
+      type: Varchar
+    - name: id
+      type: Uuid!
+    - name: isOnboarded
+      type: Bool
+    - name: isSuspended
+      type: Bool
+    - name: isVerified
+      type: Bool
+    - name: memberId
+      type: Varchar
+    - name: ssoProviders
+      type: Jsonb
+    - name: suspendedAt
+      type: Timestamptz
+    - name: suspendedBy
+      type: Varchar
+    - name: suspendedReason
+      type: Varchar
+    - name: updatedAt
+      type: Timestamptz
+    - name: updatedBy
+      type: Varchar
+    - name: verifiedAt
+      type: Timestamptz
+  graphql:
+    typeName: InsertAccountObject
+    inputTypeName: InsertAccountObjectInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: insert_account_object
+      fieldMapping:
+        createdAt:
+          column:
+            name: created_at
+        createdBy:
+          column:
+            name: created_by
+        customerId:
+          column:
+            name: customer_id
+        deletedAt:
+          column:
+            name: deleted_at
+        deletedBy:
+          column:
+            name: deleted_by
+        id:
+          column:
+            name: id
+        isOnboarded:
+          column:
+            name: is_onboarded
+        isSuspended:
+          column:
+            name: is_suspended
+        isVerified:
+          column:
+            name: is_verified
+        memberId:
+          column:
+            name: member_id
+        ssoProviders:
+          column:
+            name: sso_providers
+        suspendedAt:
+          column:
+            name: suspended_at
+        suspendedBy:
+          column:
+            name: suspended_by
+        suspendedReason:
+          column:
+            name: suspended_reason
+        updatedAt:
+          column:
+            name: updated_at
+        updatedBy:
+          column:
+            name: updated_by
+        verifiedAt:
+          column:
+            name: verified_at
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertAccountObject
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - createdAt
+          - createdBy
+          - customerId
+          - deletedAt
+          - deletedBy
+          - id
+          - isOnboarded
+          - isSuspended
+          - isVerified
+          - memberId
+          - ssoProviders
+          - suspendedAt
+          - suspendedBy
+          - suspendedReason
+          - updatedAt
+          - updatedBy
+          - verifiedAt
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertAccountResponse
+  description: Responses from the 'insert_account' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Account!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: InsertAccountResponse
+    inputTypeName: InsertAccountResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: insert_account_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertAccountResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertAccount
+  outputType: InsertAccountResponse!
+  arguments:
+    - name: objects
+      type: "[InsertAccountObject!]!"
+    - name: postCheck
+      type: AccountBoolExp
+      description: Insert permission predicate over the 'account' collection
+  source:
+    dataConnectorName: postgres_connector
+    dataConnectorCommand:
+      procedure: insert_account
+    argumentMapping:
+      objects: objects
+      postCheck: post_check
+  graphql:
+    rootFieldName: insertAccount
+    rootFieldKind: Mutation
+  description: Insert into the account table
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertAccount
+  permissions:
+    - role: admin
+      allowExecution: true
+

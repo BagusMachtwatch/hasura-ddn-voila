@@ -1,0 +1,3067 @@
+kind: DataConnectorLink
+version: v1
+definition:
+  name: postgres_connector
+  url:
+    readWriteUrls:
+      read:
+        valueFromEnv: VOILAACCOUNT_POSTGRES_CONNECTOR_READ_URL
+      write:
+        valueFromEnv: VOILAACCOUNT_POSTGRES_CONNECTOR_WRITE_URL
+  headers:
+    Authorization:
+      valueFromEnv: VOILAACCOUNT_POSTGRES_CONNECTOR_AUTHORIZATION_HEADER
+  schema:
+    version: v0.1
+    schema:
+      scalar_types:
+        bool:
+          representation:
+            type: boolean
+          aggregate_functions:
+            bool_and:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            bool_or:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            every:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: bool
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: bool
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: bool
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: bool
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: bool
+        date:
+          representation:
+            type: date
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: date
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: date
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: date
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: date
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: date
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: date
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: date
+        float8:
+          representation:
+            type: float64
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            stddev:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            stddev_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            stddev_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            var_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            var_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            variance:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: float8
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: float8
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: float8
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: float8
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: float8
+        int4:
+          representation:
+            type: int32
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            bit_and:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            bit_or:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            bit_xor:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            stddev:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            var_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            variance:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+        int8:
+          representation:
+            type: int64
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            bit_and:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            bit_or:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            bit_xor:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            stddev:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            variance:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+        jsonb:
+          aggregate_functions: {}
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: jsonb
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: jsonb
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: jsonb
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: jsonb
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: jsonb
+            jsonb_contained:
+              type: custom
+              argument_type:
+                type: named
+                name: jsonb
+            jsonb_contains:
+              type: custom
+              argument_type:
+                type: named
+                name: jsonb
+            jsonb_exists:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+        numeric:
+          representation:
+            type: bigdecimal
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            variance:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+        text:
+          representation:
+            type: string
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _ilike:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _in:
+              type: in
+            _iregex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _like:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _nilike:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _niregex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _nlike:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _nregex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _regex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            starts_with:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            ts_match_tt:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+        timestamptz:
+          representation:
+            type: timestamptz
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+        uuid:
+          representation:
+            type: uuid
+          aggregate_functions: {}
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: uuid
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: uuid
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: uuid
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: uuid
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: uuid
+        varchar:
+          representation:
+            type: string
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _ilike:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _in:
+              type: in
+            _iregex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _like:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _nilike:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _niregex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _nlike:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _nregex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _regex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            starts_with:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            ts_match_tt:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+      object_types:
+        account:
+          fields:
+            created_at:
+              type:
+                type: named
+                name: timestamptz
+            created_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            customer_id:
+              type:
+                type: named
+                name: int4
+            deleted_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            deleted_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: named
+                name: uuid
+            is_onboarded:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            is_suspended:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            is_verified:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            member_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            sso_providers:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: jsonb
+            suspended_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            suspended_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            suspended_reason:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            updated_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            updated_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            verified_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        customer:
+          fields:
+            created_at:
+              type:
+                type: named
+                name: timestamptz
+            created_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            deleted_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            deleted_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            dob:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: date
+            email:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            first_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            gender:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: named
+                name: int4
+            is_member:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            is_newslatter_subscribed:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            last_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            note:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            phone:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            shopify_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            shopify_tags:
+              type:
+                type: nullable
+                underlying_type:
+                  type: array
+                  element_type:
+                    type: nullable
+                    underlying_type:
+                      type: named
+                      name: varchar
+            source:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            tags:
+              type:
+                type: nullable
+                underlying_type:
+                  type: array
+                  element_type:
+                    type: nullable
+                    underlying_type:
+                      type: named
+                      name: varchar
+            updated_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            updated_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        customer_address:
+          fields:
+            address:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            category:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            created_at:
+              type:
+                type: named
+                name: timestamptz
+            created_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            customer_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            deleted_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            deleted_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            district_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            district_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: named
+                name: int4
+            is_default:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            latitude:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            longitude:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            note:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            phone:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            pinpoint_address:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            pinpoint_title:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            province_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            province_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            shopify_address_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            sub_district_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            sub_district_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            updated_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            updated_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            zip:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        delete_account_by_id_response:
+          description: Responses from the 'delete_account_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: account
+        delete_customer_address_by_id_response:
+          description: Responses from the 'delete_customer_address_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: customer_address
+        delete_customer_by_id_response:
+          description: Responses from the 'delete_customer_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: customer
+        insert_account_object:
+          fields:
+            created_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            created_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            customer_id:
+              type:
+                type: named
+                name: int4
+            deleted_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            deleted_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: named
+                name: uuid
+            is_onboarded:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            is_suspended:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            is_verified:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            member_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            sso_providers:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: jsonb
+            suspended_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            suspended_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            suspended_reason:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            updated_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            updated_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            verified_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        insert_account_response:
+          description: Responses from the 'insert_account' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: account
+        insert_customer_address_object:
+          fields:
+            address:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            category:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            created_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            created_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            customer_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            deleted_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            deleted_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            district_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            district_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            is_default:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            latitude:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            longitude:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+            name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            note:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            phone:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            pinpoint_address:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            pinpoint_title:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            province_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            province_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            shopify_address_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            sub_district_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            sub_district_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            updated_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            updated_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            zip:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        insert_customer_address_response:
+          description: Responses from the 'insert_customer_address' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: customer_address
+        insert_customer_object:
+          fields:
+            created_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            created_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            deleted_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            deleted_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            dob:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: date
+            email:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            first_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            gender:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            is_member:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            is_newslatter_subscribed:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+            last_name:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            note:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            phone:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            shopify_id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            shopify_tags:
+              type:
+                type: nullable
+                underlying_type:
+                  type: array
+                  element_type:
+                    type: nullable
+                    underlying_type:
+                      type: named
+                      name: varchar
+            source:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+            tags:
+              type:
+                type: nullable
+                underlying_type:
+                  type: array
+                  element_type:
+                    type: nullable
+                    underlying_type:
+                      type: named
+                      name: varchar
+            updated_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            updated_by:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        insert_customer_response:
+          description: Responses from the 'insert_customer' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: customer
+        update_account_by_id_response:
+          description: Responses from the 'update_account_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: account
+        update_account_by_id_update_columns:
+          description: Update the columns of the 'account' collection
+          fields:
+            created_at:
+              description: Update the 'created_at' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_created_at
+            created_by:
+              description: Update the 'created_by' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_created_by
+            customer_id:
+              description: Update the 'customer_id' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_customer_id
+            deleted_at:
+              description: Update the 'deleted_at' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_deleted_at
+            deleted_by:
+              description: Update the 'deleted_by' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_deleted_by
+            id:
+              description: Update the 'id' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_id
+            is_onboarded:
+              description: Update the 'is_onboarded' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_is_onboarded
+            is_suspended:
+              description: Update the 'is_suspended' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_is_suspended
+            is_verified:
+              description: Update the 'is_verified' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_is_verified
+            member_id:
+              description: Update the 'member_id' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_member_id
+            sso_providers:
+              description: Update the 'sso_providers' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_sso_providers
+            suspended_at:
+              description: Update the 'suspended_at' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_suspended_at
+            suspended_by:
+              description: Update the 'suspended_by' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_suspended_by
+            suspended_reason:
+              description: Update the 'suspended_reason' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_suspended_reason
+            updated_at:
+              description: Update the 'updated_at' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_updated_at
+            updated_by:
+              description: Update the 'updated_by' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_updated_by
+            verified_at:
+              description: Update the 'verified_at' column in the 'account' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_account_verified_at
+        update_column_account_created_at:
+          description: Update the 'created_at' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: timestamptz
+        update_column_account_created_by:
+          description: Update the 'created_by' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_account_customer_id:
+          description: Update the 'customer_id' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_account_deleted_at:
+          description: Update the 'deleted_at' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_account_deleted_by:
+          description: Update the 'deleted_by' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_account_id:
+          description: Update the 'id' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: uuid
+        update_column_account_is_onboarded:
+          description: Update the 'is_onboarded' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+        update_column_account_is_suspended:
+          description: Update the 'is_suspended' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+        update_column_account_is_verified:
+          description: Update the 'is_verified' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+        update_column_account_member_id:
+          description: Update the 'member_id' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_account_sso_providers:
+          description: Update the 'sso_providers' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: jsonb
+        update_column_account_suspended_at:
+          description: Update the 'suspended_at' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_account_suspended_by:
+          description: Update the 'suspended_by' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_account_suspended_reason:
+          description: Update the 'suspended_reason' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_account_updated_at:
+          description: Update the 'updated_at' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_account_updated_by:
+          description: Update the 'updated_by' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_account_verified_at:
+          description: Update the 'verified_at' column in the 'account' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_customer_address_address:
+          description: Update the 'address' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_category:
+          description: Update the 'category' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_created_at:
+          description: Update the 'created_at' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: timestamptz
+        update_column_customer_address_created_by:
+          description: Update the 'created_by' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_customer_id:
+          description: Update the 'customer_id' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_customer_address_deleted_at:
+          description: Update the 'deleted_at' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_customer_address_deleted_by:
+          description: Update the 'deleted_by' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_district_id:
+          description: Update the 'district_id' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_customer_address_district_name:
+          description: Update the 'district_name' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_id:
+          description: Update the 'id' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_customer_address_is_default:
+          description: Update the 'is_default' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+        update_column_customer_address_latitude:
+          description: Update the 'latitude' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        update_column_customer_address_longitude:
+          description: Update the 'longitude' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: float8
+        update_column_customer_address_name:
+          description: Update the 'name' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_note:
+          description: Update the 'note' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_phone:
+          description: Update the 'phone' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_pinpoint_address:
+          description: Update the 'pinpoint_address' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_pinpoint_title:
+          description: Update the 'pinpoint_title' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_province_id:
+          description: Update the 'province_id' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_customer_address_province_name:
+          description: Update the 'province_name' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_shopify_address_id:
+          description: Update the 'shopify_address_id' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+        update_column_customer_address_sub_district_id:
+          description: Update the 'sub_district_id' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_customer_address_sub_district_name:
+          description: Update the 'sub_district_name' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_updated_at:
+          description: Update the 'updated_at' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_customer_address_updated_by:
+          description: Update the 'updated_by' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_address_zip:
+          description: Update the 'zip' column in the 'customer_address' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+        update_column_customer_created_at:
+          description: Update the 'created_at' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: timestamptz
+        update_column_customer_created_by:
+          description: Update the 'created_by' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_deleted_at:
+          description: Update the 'deleted_at' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_customer_deleted_by:
+          description: Update the 'deleted_by' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_dob:
+          description: Update the 'dob' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: date
+        update_column_customer_email:
+          description: Update the 'email' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_first_name:
+          description: Update the 'first_name' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_gender:
+          description: Update the 'gender' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_id:
+          description: Update the 'id' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_customer_is_member:
+          description: Update the 'is_member' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+        update_column_customer_is_newslatter_subscribed:
+          description: Update the 'is_newslatter_subscribed' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: bool
+        update_column_customer_last_name:
+          description: Update the 'last_name' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_note:
+          description: Update the 'note' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_phone:
+          description: Update the 'phone' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_shopify_id:
+          description: Update the 'shopify_id' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+        update_column_customer_shopify_tags:
+          description: Update the 'shopify_tags' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: array
+                  element_type:
+                    type: nullable
+                    underlying_type:
+                      type: named
+                      name: varchar
+        update_column_customer_source:
+          description: Update the 'source' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_column_customer_tags:
+          description: Update the 'tags' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: array
+                  element_type:
+                    type: nullable
+                    underlying_type:
+                      type: named
+                      name: varchar
+        update_column_customer_updated_at:
+          description: Update the 'updated_at' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column_customer_updated_by:
+          description: Update the 'updated_by' column in the 'customer' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: varchar
+        update_customer_address_by_id_response:
+          description: Responses from the 'update_customer_address_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: customer_address
+        update_customer_address_by_id_update_columns:
+          description: Update the columns of the 'customer_address' collection
+          fields:
+            address:
+              description: Update the 'address' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_address
+            category:
+              description: Update the 'category' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_category
+            created_at:
+              description: Update the 'created_at' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_created_at
+            created_by:
+              description: Update the 'created_by' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_created_by
+            customer_id:
+              description: Update the 'customer_id' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_customer_id
+            deleted_at:
+              description: Update the 'deleted_at' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_deleted_at
+            deleted_by:
+              description: Update the 'deleted_by' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_deleted_by
+            district_id:
+              description: Update the 'district_id' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_district_id
+            district_name:
+              description: Update the 'district_name' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_district_name
+            id:
+              description: Update the 'id' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_id
+            is_default:
+              description: Update the 'is_default' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_is_default
+            latitude:
+              description: Update the 'latitude' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_latitude
+            longitude:
+              description: Update the 'longitude' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_longitude
+            name:
+              description: Update the 'name' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_name
+            note:
+              description: Update the 'note' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_note
+            phone:
+              description: Update the 'phone' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_phone
+            pinpoint_address:
+              description: Update the 'pinpoint_address' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_pinpoint_address
+            pinpoint_title:
+              description: Update the 'pinpoint_title' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_pinpoint_title
+            province_id:
+              description: Update the 'province_id' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_province_id
+            province_name:
+              description: Update the 'province_name' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_province_name
+            shopify_address_id:
+              description: Update the 'shopify_address_id' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_shopify_address_id
+            sub_district_id:
+              description: Update the 'sub_district_id' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_sub_district_id
+            sub_district_name:
+              description: Update the 'sub_district_name' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_sub_district_name
+            updated_at:
+              description: Update the 'updated_at' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_updated_at
+            updated_by:
+              description: Update the 'updated_by' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_updated_by
+            zip:
+              description: Update the 'zip' column in the 'customer_address' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_address_zip
+        update_customer_by_id_response:
+          description: Responses from the 'update_customer_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: customer
+        update_customer_by_id_update_columns:
+          description: Update the columns of the 'customer' collection
+          fields:
+            created_at:
+              description: Update the 'created_at' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_created_at
+            created_by:
+              description: Update the 'created_by' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_created_by
+            deleted_at:
+              description: Update the 'deleted_at' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_deleted_at
+            deleted_by:
+              description: Update the 'deleted_by' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_deleted_by
+            dob:
+              description: Update the 'dob' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_dob
+            email:
+              description: Update the 'email' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_email
+            first_name:
+              description: Update the 'first_name' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_first_name
+            gender:
+              description: Update the 'gender' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_gender
+            id:
+              description: Update the 'id' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_id
+            is_member:
+              description: Update the 'is_member' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_is_member
+            is_newslatter_subscribed:
+              description: Update the 'is_newslatter_subscribed' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_is_newslatter_subscribed
+            last_name:
+              description: Update the 'last_name' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_last_name
+            note:
+              description: Update the 'note' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_note
+            phone:
+              description: Update the 'phone' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_phone
+            shopify_id:
+              description: Update the 'shopify_id' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_shopify_id
+            shopify_tags:
+              description: Update the 'shopify_tags' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_shopify_tags
+            source:
+              description: Update the 'source' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_source
+            tags:
+              description: Update the 'tags' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_tags
+            updated_at:
+              description: Update the 'updated_at' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_updated_at
+            updated_by:
+              description: Update the 'updated_by' column in the 'customer' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_customer_updated_by
+      collections:
+        - name: account
+          arguments: {}
+          type: account
+          uniqueness_constraints:
+            account_pkey:
+              unique_columns:
+                - id
+          foreign_keys:
+            account_customer_id_fkey:
+              column_mapping:
+                customer_id: id
+              foreign_collection: customer
+        - name: customer
+          arguments: {}
+          type: customer
+          uniqueness_constraints:
+            customer_pkey:
+              unique_columns:
+                - id
+          foreign_keys: {}
+        - name: customer_address
+          arguments: {}
+          type: customer_address
+          uniqueness_constraints:
+            customer_address_pkey:
+              unique_columns:
+                - id
+          foreign_keys:
+            customer_address_customer_id_fkey:
+              column_mapping:
+                customer_id: id
+              foreign_collection: customer
+      functions: []
+      procedures:
+        - name: delete_account_by_id
+          description: Delete any row on the 'account' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: uuid
+            pre_check:
+              description: Delete permission predicate over the 'account' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: account
+          result_type:
+            type: named
+            name: delete_account_by_id_response
+        - name: delete_customer_address_by_id
+          description: Delete any row on the 'customer_address' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'customer_address' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: customer_address
+          result_type:
+            type: named
+            name: delete_customer_address_by_id_response
+        - name: delete_customer_by_id
+          description: Delete any row on the 'customer' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'customer' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: customer
+          result_type:
+            type: named
+            name: delete_customer_by_id_response
+        - name: insert_account
+          description: Insert into the account table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_account_object
+            post_check:
+              description: Insert permission predicate over the 'account' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: account
+          result_type:
+            type: named
+            name: insert_account_response
+        - name: insert_customer
+          description: Insert into the customer table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_customer_object
+            post_check:
+              description: Insert permission predicate over the 'customer' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: customer
+          result_type:
+            type: named
+            name: insert_customer_response
+        - name: insert_customer_address
+          description: Insert into the customer_address table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_customer_address_object
+            post_check:
+              description: Insert permission predicate over the 'customer_address' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: customer_address
+          result_type:
+            type: named
+            name: insert_customer_address_response
+        - name: update_account_by_id
+          description: Update any row on the 'account' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: uuid
+            post_check:
+              description: Update permission post-condition predicate over the 'account' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: account
+            pre_check:
+              description: Update permission pre-condition predicate over the 'account' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: account
+            update_columns:
+              type:
+                type: named
+                name: update_account_by_id_update_columns
+          result_type:
+            type: named
+            name: update_account_by_id_response
+        - name: update_customer_address_by_id
+          description: Update any row on the 'customer_address' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'customer_address' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: customer_address
+            pre_check:
+              description: Update permission pre-condition predicate over the 'customer_address' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: customer_address
+            update_columns:
+              type:
+                type: named
+                name: update_customer_address_by_id_update_columns
+          result_type:
+            type: named
+            name: update_customer_address_by_id_response
+        - name: update_customer_by_id
+          description: Update any row on the 'customer' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'customer' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: customer
+            pre_check:
+              description: Update permission pre-condition predicate over the 'customer' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: customer
+            update_columns:
+              type:
+                type: named
+                name: update_customer_by_id_update_columns
+          result_type:
+            type: named
+            name: update_customer_by_id_response
+    capabilities:
+      version: 0.1.6
+      capabilities:
+        query:
+          aggregates: {}
+          variables: {}
+          explain: {}
+          nested_fields:
+            filter_by: {}
+            order_by: {}
+          exists:
+            nested_collections: {}
+        mutation:
+          transactional: {}
+          explain: {}
+        relationships:
+          relation_comparisons: {}
+          order_by_aggregate: {}

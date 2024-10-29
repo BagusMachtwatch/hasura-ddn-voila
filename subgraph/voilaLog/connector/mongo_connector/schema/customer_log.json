@@ -1,0 +1,135 @@
+{
+  "name": "customer_log",
+  "collections": {
+    "customer_log": {
+      "type": "customer_log"
+    }
+  },
+  "objectTypes": {
+    "customer_log": {
+      "fields": {
+        "_id": {
+          "type": {
+            "scalar": "objectId"
+          }
+        },
+        "action": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "created_at": {
+          "type": {
+            "nullable": {
+              "scalar": "date"
+            }
+          }
+        },
+        "created_by": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "customer_id": {
+          "type": "extendedJSON"
+        },
+        "data": {
+          "type": {
+            "nullable": {
+              "object": "customer_log_data"
+            }
+          }
+        }
+      }
+    },
+    "customer_log_data": {
+      "fields": {
+        "after": {
+          "type": {
+            "nullable": {
+              "object": "customer_log_data_after"
+            }
+          }
+        },
+        "before": {
+          "type": {
+            "nullable": {
+              "object": "customer_log_data_before"
+            }
+          }
+        },
+        "id": {
+          "type": "extendedJSON"
+        },
+        "order_source": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "total_price": {
+          "type": {
+            "nullable": {
+              "scalar": "double"
+            }
+          }
+        }
+      }
+    },
+    "customer_log_data_after": {
+      "fields": {
+        "is_default": {
+          "type": {
+            "nullable": {
+              "scalar": "bool"
+            }
+          }
+        },
+        "phone": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "shopify_address_id": {
+          "type": {
+            "nullable": {
+              "scalar": "long"
+            }
+          }
+        }
+      }
+    },
+    "customer_log_data_before": {
+      "fields": {
+        "is_default": {
+          "type": {
+            "nullable": {
+              "scalar": "bool"
+            }
+          }
+        },
+        "phone": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "shopify_address_id": {
+          "type": {
+            "nullable": {
+              "scalar": "long"
+            }
+          }
+        }
+      }
+    }
+  }
+}

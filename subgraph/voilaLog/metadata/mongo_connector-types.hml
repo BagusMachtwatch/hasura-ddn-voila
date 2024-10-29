@@ -1,0 +1,604 @@
+---
+kind: ScalarType
+version: v1
+definition:
+  name: ObjectId
+  graphql:
+    typeName: ObjectId
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_connector
+  dataConnectorScalarType: ObjectId
+  representation: ObjectId
+  graphql:
+    comparisonExpressionTypeName: ObjectIdComparisonExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ObjectIdBoolExp
+  operand:
+    scalar:
+      type: ObjectId
+      comparisonOperators:
+        - name: _eq
+          argumentType: ObjectId!
+        - name: _neq
+          argumentType: ObjectId!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: ObjectId
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ObjectIdBoolExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Date_1
+  graphql:
+    typeName: Date1
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_connector
+  dataConnectorScalarType: Date
+  representation: Date_1
+  graphql:
+    comparisonExpressionTypeName: Date1ComparisonExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DateBoolExp_1
+  operand:
+    scalar:
+      type: Date_1
+      comparisonOperators:
+        - name: _eq
+          argumentType: Date_1!
+        - name: _gt
+          argumentType: Date_1!
+        - name: _gte
+          argumentType: Date_1!
+        - name: _lt
+          argumentType: Date_1!
+        - name: _lte
+          argumentType: Date_1!
+        - name: _neq
+          argumentType: Date_1!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: Date
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DateBoolExp1
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: ExtendedJson
+  graphql:
+    typeName: ExtendedJson
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_connector
+  dataConnectorScalarType: ExtendedJSON
+  representation: ExtendedJson
+  graphql:
+    comparisonExpressionTypeName: ExtendedJsonComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_connector
+  dataConnectorScalarType: String
+  representation: String
+  graphql:
+    comparisonExpressionTypeName: StringComparisonExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ExtendedJsonBoolExp
+  operand:
+    scalar:
+      type: ExtendedJson
+      comparisonOperators:
+        - name: _eq
+          argumentType: ExtendedJson!
+        - name: _gt
+          argumentType: ExtendedJson!
+        - name: _gte
+          argumentType: ExtendedJson!
+        - name: _in
+          argumentType: ExtendedJson!
+        - name: _iregex
+          argumentType: String!
+        - name: _lt
+          argumentType: ExtendedJson!
+        - name: _lte
+          argumentType: ExtendedJson!
+        - name: _neq
+          argumentType: ExtendedJson!
+        - name: _regex
+          argumentType: String!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: ExtendedJSON
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ExtendedJsonBoolExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Bool_1
+  graphql:
+    typeName: Bool1
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_connector
+  dataConnectorScalarType: Bool
+  representation: Bool_1
+  graphql:
+    comparisonExpressionTypeName: Bool1ComparisonExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: BoolBoolExp_1
+  operand:
+    scalar:
+      type: Bool_1
+      comparisonOperators:
+        - name: _eq
+          argumentType: Bool_1!
+        - name: _neq
+          argumentType: Bool_1!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: Bool
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: BoolBoolExp1
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Long
+  graphql:
+    typeName: Long
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_connector
+  dataConnectorScalarType: Long
+  representation: Long
+  graphql:
+    comparisonExpressionTypeName: LongComparisonExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: LongBoolExp
+  operand:
+    scalar:
+      type: Long
+      comparisonOperators:
+        - name: _eq
+          argumentType: Long!
+        - name: _gt
+          argumentType: Long!
+        - name: _gte
+          argumentType: Long!
+        - name: _lt
+          argumentType: Long!
+        - name: _lte
+          argumentType: Long!
+        - name: _neq
+          argumentType: Long!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: Long
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: LongBoolExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: "Null"
+  graphql:
+    typeName: "Null"
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_connector
+  dataConnectorScalarType: "Null"
+  representation: "Null"
+  graphql:
+    comparisonExpressionTypeName: NullComparisonExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: NullBoolExp
+  operand:
+    scalar:
+      type: "Null"
+      comparisonOperators:
+        - name: _eq
+          argumentType: Null!
+        - name: _neq
+          argumentType: Null!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: "Null"
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: NullBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: StringBoolExp
+  operand:
+    scalar:
+      type: String
+      comparisonOperators:
+        - name: _eq
+          argumentType: String!
+        - name: _gt
+          argumentType: String!
+        - name: _gte
+          argumentType: String!
+        - name: _iregex
+          argumentType: String!
+        - name: _lt
+          argumentType: String!
+        - name: _lte
+          argumentType: String!
+        - name: _neq
+          argumentType: String!
+        - name: _regex
+          argumentType: String!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: String
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: StringBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_connector
+  dataConnectorScalarType: Int
+  representation: Int
+  graphql:
+    comparisonExpressionTypeName: IntComparisonExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: IntBoolExp
+  operand:
+    scalar:
+      type: Int
+      comparisonOperators:
+        - name: _eq
+          argumentType: Int!
+        - name: _gt
+          argumentType: Int!
+        - name: _gte
+          argumentType: Int!
+        - name: _lt
+          argumentType: Int!
+        - name: _lte
+          argumentType: Int!
+        - name: _neq
+          argumentType: Int!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: Int
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: IntBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ObjectIdAggExp
+  operand:
+    scalar:
+      aggregatedType: ObjectId
+      aggregationFunctions:
+        - name: count
+          returnType: Int!
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: ObjectId
+          functionMapping:
+            count:
+              name: count
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: ObjectIdAggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: StringAggExp
+  operand:
+    scalar:
+      aggregatedType: String
+      aggregationFunctions:
+        - name: count
+          returnType: Int!
+        - name: max
+          returnType: String!
+        - name: min
+          returnType: String!
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: String
+          functionMapping:
+            count:
+              name: count
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: StringAggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DateAggExp_1
+  operand:
+    scalar:
+      aggregatedType: Date_1
+      aggregationFunctions:
+        - name: count
+          returnType: Int!
+        - name: max
+          returnType: Date_1!
+        - name: min
+          returnType: Date_1!
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: Date
+          functionMapping:
+            count:
+              name: count
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: DateAggExp1
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ExtendedJsonAggExp
+  operand:
+    scalar:
+      aggregatedType: ExtendedJson
+      aggregationFunctions:
+        - name: avg
+          returnType: ExtendedJson!
+        - name: count
+          returnType: Int!
+        - name: max
+          returnType: ExtendedJson!
+        - name: min
+          returnType: ExtendedJson!
+        - name: sum
+          returnType: ExtendedJson!
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: ExtendedJSON
+          functionMapping:
+            avg:
+              name: avg
+            count:
+              name: count
+            max:
+              name: max
+            min:
+              name: min
+            sum:
+              name: sum
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: ExtendedJsonAggExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: BinData
+  graphql:
+    typeName: BinData
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_connector
+  dataConnectorScalarType: BinData
+  representation: BinData
+  graphql:
+    comparisonExpressionTypeName: BinDataComparisonExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: BinDataBoolExp
+  operand:
+    scalar:
+      type: BinData
+      comparisonOperators:
+        - name: _eq
+          argumentType: BinData!
+        - name: _neq
+          argumentType: BinData!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: BinData
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: BinDataBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: BinDataAggExp
+  operand:
+    scalar:
+      aggregatedType: BinData
+      aggregationFunctions:
+        - name: count
+          returnType: Int!
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: BinData
+          functionMapping:
+            count:
+              name: count
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: BinDataAggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: IntAggExp
+  operand:
+    scalar:
+      aggregatedType: Int
+      aggregationFunctions:
+        - name: avg
+          returnType: Int!
+        - name: count
+          returnType: Int!
+        - name: max
+          returnType: Int!
+        - name: min
+          returnType: Int!
+        - name: sum
+          returnType: Int!
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mongo_connector
+          dataConnectorScalarType: Int
+          functionMapping:
+            avg:
+              name: avg
+            count:
+              name: count
+            max:
+              name: max
+            min:
+              name: min
+            sum:
+              name: sum
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: IntAggExp
+

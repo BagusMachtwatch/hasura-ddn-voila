@@ -1,0 +1,1123 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressAddress
+  description: Update the 'address' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressAddress
+    inputTypeName: UpdateColumnCustomerAddressAddressInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_address
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressAddress
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressCategory
+  description: Update the 'category' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressCategory
+    inputTypeName: UpdateColumnCustomerAddressCategoryInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_category
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressCategory
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressCreatedAt
+  description: Update the 'created_at' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Timestamptz!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressCreatedAt
+    inputTypeName: UpdateColumnCustomerAddressCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressCreatedBy
+  description: Update the 'created_by' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressCreatedBy
+    inputTypeName: UpdateColumnCustomerAddressCreatedByInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_created_by
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressCreatedBy
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressCustomerId
+  description: Update the 'customer_id' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Int4
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressCustomerId
+    inputTypeName: UpdateColumnCustomerAddressCustomerIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_customer_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressCustomerId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressDeletedAt
+  description: Update the 'deleted_at' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Timestamptz
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressDeletedAt
+    inputTypeName: UpdateColumnCustomerAddressDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressDeletedBy
+  description: Update the 'deleted_by' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressDeletedBy
+    inputTypeName: UpdateColumnCustomerAddressDeletedByInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_deleted_by
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressDeletedBy
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressDistrictId
+  description: Update the 'district_id' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Int4
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressDistrictId
+    inputTypeName: UpdateColumnCustomerAddressDistrictIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_district_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressDistrictId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressDistrictName
+  description: Update the 'district_name' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressDistrictName
+    inputTypeName: UpdateColumnCustomerAddressDistrictNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_district_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressDistrictName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressId
+  description: Update the 'id' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressId
+    inputTypeName: UpdateColumnCustomerAddressIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressIsDefault
+  description: Update the 'is_default' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Bool
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressIsDefault
+    inputTypeName: UpdateColumnCustomerAddressIsDefaultInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_is_default
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressIsDefault
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressLatitude
+  description: Update the 'latitude' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Float8
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressLatitude
+    inputTypeName: UpdateColumnCustomerAddressLatitudeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_latitude
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressLatitude
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressLongitude
+  description: Update the 'longitude' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Float8
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressLongitude
+    inputTypeName: UpdateColumnCustomerAddressLongitudeInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_longitude
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressLongitude
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressName
+  description: Update the 'name' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressName
+    inputTypeName: UpdateColumnCustomerAddressNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressNote
+  description: Update the 'note' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressNote
+    inputTypeName: UpdateColumnCustomerAddressNoteInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_note
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressNote
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressPhone
+  description: Update the 'phone' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressPhone
+    inputTypeName: UpdateColumnCustomerAddressPhoneInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_phone
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressPhone
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressPinpointAddress
+  description: Update the 'pinpoint_address' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressPinpointAddress
+    inputTypeName: UpdateColumnCustomerAddressPinpointAddressInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_pinpoint_address
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressPinpointAddress
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressPinpointTitle
+  description: Update the 'pinpoint_title' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressPinpointTitle
+    inputTypeName: UpdateColumnCustomerAddressPinpointTitleInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_pinpoint_title
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressPinpointTitle
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressProvinceId
+  description: Update the 'province_id' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Int4
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressProvinceId
+    inputTypeName: UpdateColumnCustomerAddressProvinceIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_province_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressProvinceId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressProvinceName
+  description: Update the 'province_name' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressProvinceName
+    inputTypeName: UpdateColumnCustomerAddressProvinceNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_province_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressProvinceName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressShopifyAddressId
+  description: Update the 'shopify_address_id' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Int8
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressShopifyAddressId
+    inputTypeName: UpdateColumnCustomerAddressShopifyAddressIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_shopify_address_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressShopifyAddressId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressSubDistrictId
+  description: Update the 'sub_district_id' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Int4
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressSubDistrictId
+    inputTypeName: UpdateColumnCustomerAddressSubDistrictIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_sub_district_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressSubDistrictId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressSubDistrictName
+  description: Update the 'sub_district_name' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressSubDistrictName
+    inputTypeName: UpdateColumnCustomerAddressSubDistrictNameInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_sub_district_name
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressSubDistrictName
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressUpdatedAt
+  description: Update the 'updated_at' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Timestamptz
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressUpdatedAt
+    inputTypeName: UpdateColumnCustomerAddressUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressUpdatedBy
+  description: Update the 'updated_by' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressUpdatedBy
+    inputTypeName: UpdateColumnCustomerAddressUpdatedByInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_updated_by
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressUpdatedBy
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnCustomerAddressZip
+  description: Update the 'zip' column in the 'customer_address' collection
+  fields:
+    - name: set
+      type: Int4
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnCustomerAddressZip
+    inputTypeName: UpdateColumnCustomerAddressZipInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_customer_address_zip
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnCustomerAddressZip
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateCustomerAddressByIdUpdateColumns
+  description: Update the columns of the 'customer_address' collection
+  fields:
+    - name: address
+      type: UpdateColumnCustomerAddressAddress
+      description: Update the 'address' column in the 'customer_address' collection.
+    - name: category
+      type: UpdateColumnCustomerAddressCategory
+      description: Update the 'category' column in the 'customer_address' collection.
+    - name: createdAt
+      type: UpdateColumnCustomerAddressCreatedAt
+      description: Update the 'created_at' column in the 'customer_address' collection.
+    - name: createdBy
+      type: UpdateColumnCustomerAddressCreatedBy
+      description: Update the 'created_by' column in the 'customer_address' collection.
+    - name: customerId
+      type: UpdateColumnCustomerAddressCustomerId
+      description: Update the 'customer_id' column in the 'customer_address' collection.
+    - name: deletedAt
+      type: UpdateColumnCustomerAddressDeletedAt
+      description: Update the 'deleted_at' column in the 'customer_address' collection.
+    - name: deletedBy
+      type: UpdateColumnCustomerAddressDeletedBy
+      description: Update the 'deleted_by' column in the 'customer_address' collection.
+    - name: districtId
+      type: UpdateColumnCustomerAddressDistrictId
+      description: Update the 'district_id' column in the 'customer_address' collection.
+    - name: districtName
+      type: UpdateColumnCustomerAddressDistrictName
+      description: Update the 'district_name' column in the 'customer_address' collection.
+    - name: id
+      type: UpdateColumnCustomerAddressId
+      description: Update the 'id' column in the 'customer_address' collection.
+    - name: isDefault
+      type: UpdateColumnCustomerAddressIsDefault
+      description: Update the 'is_default' column in the 'customer_address' collection.
+    - name: latitude
+      type: UpdateColumnCustomerAddressLatitude
+      description: Update the 'latitude' column in the 'customer_address' collection.
+    - name: longitude
+      type: UpdateColumnCustomerAddressLongitude
+      description: Update the 'longitude' column in the 'customer_address' collection.
+    - name: name
+      type: UpdateColumnCustomerAddressName
+      description: Update the 'name' column in the 'customer_address' collection.
+    - name: note
+      type: UpdateColumnCustomerAddressNote
+      description: Update the 'note' column in the 'customer_address' collection.
+    - name: phone
+      type: UpdateColumnCustomerAddressPhone
+      description: Update the 'phone' column in the 'customer_address' collection.
+    - name: pinpointAddress
+      type: UpdateColumnCustomerAddressPinpointAddress
+      description: Update the 'pinpoint_address' column in the 'customer_address'
+        collection.
+    - name: pinpointTitle
+      type: UpdateColumnCustomerAddressPinpointTitle
+      description: Update the 'pinpoint_title' column in the 'customer_address' collection.
+    - name: provinceId
+      type: UpdateColumnCustomerAddressProvinceId
+      description: Update the 'province_id' column in the 'customer_address' collection.
+    - name: provinceName
+      type: UpdateColumnCustomerAddressProvinceName
+      description: Update the 'province_name' column in the 'customer_address' collection.
+    - name: shopifyAddressId
+      type: UpdateColumnCustomerAddressShopifyAddressId
+      description: Update the 'shopify_address_id' column in the 'customer_address'
+        collection.
+    - name: subDistrictId
+      type: UpdateColumnCustomerAddressSubDistrictId
+      description: Update the 'sub_district_id' column in the 'customer_address' collection.
+    - name: subDistrictName
+      type: UpdateColumnCustomerAddressSubDistrictName
+      description: Update the 'sub_district_name' column in the 'customer_address'
+        collection.
+    - name: updatedAt
+      type: UpdateColumnCustomerAddressUpdatedAt
+      description: Update the 'updated_at' column in the 'customer_address' collection.
+    - name: updatedBy
+      type: UpdateColumnCustomerAddressUpdatedBy
+      description: Update the 'updated_by' column in the 'customer_address' collection.
+    - name: zip
+      type: UpdateColumnCustomerAddressZip
+      description: Update the 'zip' column in the 'customer_address' collection.
+  graphql:
+    typeName: UpdateCustomerAddressByIdUpdateColumns
+    inputTypeName: UpdateCustomerAddressByIdUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_customer_address_by_id_update_columns
+      fieldMapping:
+        address:
+          column:
+            name: address
+        category:
+          column:
+            name: category
+        createdAt:
+          column:
+            name: created_at
+        createdBy:
+          column:
+            name: created_by
+        customerId:
+          column:
+            name: customer_id
+        deletedAt:
+          column:
+            name: deleted_at
+        deletedBy:
+          column:
+            name: deleted_by
+        districtId:
+          column:
+            name: district_id
+        districtName:
+          column:
+            name: district_name
+        id:
+          column:
+            name: id
+        isDefault:
+          column:
+            name: is_default
+        latitude:
+          column:
+            name: latitude
+        longitude:
+          column:
+            name: longitude
+        name:
+          column:
+            name: name
+        note:
+          column:
+            name: note
+        phone:
+          column:
+            name: phone
+        pinpointAddress:
+          column:
+            name: pinpoint_address
+        pinpointTitle:
+          column:
+            name: pinpoint_title
+        provinceId:
+          column:
+            name: province_id
+        provinceName:
+          column:
+            name: province_name
+        shopifyAddressId:
+          column:
+            name: shopify_address_id
+        subDistrictId:
+          column:
+            name: sub_district_id
+        subDistrictName:
+          column:
+            name: sub_district_name
+        updatedAt:
+          column:
+            name: updated_at
+        updatedBy:
+          column:
+            name: updated_by
+        zip:
+          column:
+            name: zip
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateCustomerAddressByIdUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - address
+          - category
+          - createdAt
+          - createdBy
+          - customerId
+          - deletedAt
+          - deletedBy
+          - districtId
+          - districtName
+          - id
+          - isDefault
+          - latitude
+          - longitude
+          - name
+          - note
+          - phone
+          - pinpointAddress
+          - pinpointTitle
+          - provinceId
+          - provinceName
+          - shopifyAddressId
+          - subDistrictId
+          - subDistrictName
+          - updatedAt
+          - updatedBy
+          - zip
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateCustomerAddressByIdResponse
+  description: Responses from the 'update_customer_address_by_id' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[CustomerAddress!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateCustomerAddressByIdResponse
+    inputTypeName: UpdateCustomerAddressByIdResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_customer_address_by_id_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateCustomerAddressByIdResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateCustomerAddressById
+  outputType: UpdateCustomerAddressByIdResponse!
+  arguments:
+    - name: keyId
+      type: Int4!
+    - name: postCheck
+      type: CustomerAddressBoolExp
+      description: Update permission post-condition predicate over the
+        'customer_address' collection
+    - name: preCheck
+      type: CustomerAddressBoolExp
+      description: Update permission pre-condition predicate over the
+        'customer_address' collection
+    - name: updateColumns
+      type: UpdateCustomerAddressByIdUpdateColumns!
+  source:
+    dataConnectorName: postgres_connector
+    dataConnectorCommand:
+      procedure: update_customer_address_by_id
+    argumentMapping:
+      keyId: key_id
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateCustomerAddressById
+    rootFieldKind: Mutation
+  description: Update any row on the 'customer_address' collection using the 'id' key
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateCustomerAddressById
+  permissions:
+    - role: admin
+      allowExecution: true
+

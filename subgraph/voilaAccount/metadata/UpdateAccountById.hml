@@ -1,0 +1,767 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountCreatedAt
+  description: Update the 'created_at' column in the 'account' collection
+  fields:
+    - name: set
+      type: Timestamptz!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountCreatedAt
+    inputTypeName: UpdateColumnAccountCreatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_created_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountCreatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountCreatedBy
+  description: Update the 'created_by' column in the 'account' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountCreatedBy
+    inputTypeName: UpdateColumnAccountCreatedByInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_created_by
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountCreatedBy
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountCustomerId
+  description: Update the 'customer_id' column in the 'account' collection
+  fields:
+    - name: set
+      type: Int4!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountCustomerId
+    inputTypeName: UpdateColumnAccountCustomerIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_customer_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountCustomerId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountDeletedAt
+  description: Update the 'deleted_at' column in the 'account' collection
+  fields:
+    - name: set
+      type: Timestamptz
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountDeletedAt
+    inputTypeName: UpdateColumnAccountDeletedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_deleted_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountDeletedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountDeletedBy
+  description: Update the 'deleted_by' column in the 'account' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountDeletedBy
+    inputTypeName: UpdateColumnAccountDeletedByInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_deleted_by
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountDeletedBy
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountId
+  description: Update the 'id' column in the 'account' collection
+  fields:
+    - name: set
+      type: Uuid!
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountId
+    inputTypeName: UpdateColumnAccountIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountIsOnboarded
+  description: Update the 'is_onboarded' column in the 'account' collection
+  fields:
+    - name: set
+      type: Bool
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountIsOnboarded
+    inputTypeName: UpdateColumnAccountIsOnboardedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_is_onboarded
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountIsOnboarded
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountIsSuspended
+  description: Update the 'is_suspended' column in the 'account' collection
+  fields:
+    - name: set
+      type: Bool
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountIsSuspended
+    inputTypeName: UpdateColumnAccountIsSuspendedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_is_suspended
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountIsSuspended
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountIsVerified
+  description: Update the 'is_verified' column in the 'account' collection
+  fields:
+    - name: set
+      type: Bool
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountIsVerified
+    inputTypeName: UpdateColumnAccountIsVerifiedInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_is_verified
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountIsVerified
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountMemberId
+  description: Update the 'member_id' column in the 'account' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountMemberId
+    inputTypeName: UpdateColumnAccountMemberIdInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_member_id
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountMemberId
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountSsoProviders
+  description: Update the 'sso_providers' column in the 'account' collection
+  fields:
+    - name: set
+      type: Jsonb
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountSsoProviders
+    inputTypeName: UpdateColumnAccountSsoProvidersInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_sso_providers
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountSsoProviders
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountSuspendedAt
+  description: Update the 'suspended_at' column in the 'account' collection
+  fields:
+    - name: set
+      type: Timestamptz
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountSuspendedAt
+    inputTypeName: UpdateColumnAccountSuspendedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_suspended_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountSuspendedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountSuspendedBy
+  description: Update the 'suspended_by' column in the 'account' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountSuspendedBy
+    inputTypeName: UpdateColumnAccountSuspendedByInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_suspended_by
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountSuspendedBy
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountSuspendedReason
+  description: Update the 'suspended_reason' column in the 'account' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountSuspendedReason
+    inputTypeName: UpdateColumnAccountSuspendedReasonInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_suspended_reason
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountSuspendedReason
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountUpdatedAt
+  description: Update the 'updated_at' column in the 'account' collection
+  fields:
+    - name: set
+      type: Timestamptz
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountUpdatedAt
+    inputTypeName: UpdateColumnAccountUpdatedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_updated_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountUpdatedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountUpdatedBy
+  description: Update the 'updated_by' column in the 'account' collection
+  fields:
+    - name: set
+      type: Varchar
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountUpdatedBy
+    inputTypeName: UpdateColumnAccountUpdatedByInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_updated_by
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountUpdatedBy
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateColumnAccountVerifiedAt
+  description: Update the 'verified_at' column in the 'account' collection
+  fields:
+    - name: set
+      type: Timestamptz
+      description: Set the column to this value
+  graphql:
+    typeName: UpdateColumnAccountVerifiedAt
+    inputTypeName: UpdateColumnAccountVerifiedAtInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_column_account_verified_at
+      fieldMapping:
+        set:
+          column:
+            name: _set
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateColumnAccountVerifiedAt
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - set
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateAccountByIdUpdateColumns
+  description: Update the columns of the 'account' collection
+  fields:
+    - name: createdAt
+      type: UpdateColumnAccountCreatedAt
+      description: Update the 'created_at' column in the 'account' collection.
+    - name: createdBy
+      type: UpdateColumnAccountCreatedBy
+      description: Update the 'created_by' column in the 'account' collection.
+    - name: customerId
+      type: UpdateColumnAccountCustomerId
+      description: Update the 'customer_id' column in the 'account' collection.
+    - name: deletedAt
+      type: UpdateColumnAccountDeletedAt
+      description: Update the 'deleted_at' column in the 'account' collection.
+    - name: deletedBy
+      type: UpdateColumnAccountDeletedBy
+      description: Update the 'deleted_by' column in the 'account' collection.
+    - name: id
+      type: UpdateColumnAccountId
+      description: Update the 'id' column in the 'account' collection.
+    - name: isOnboarded
+      type: UpdateColumnAccountIsOnboarded
+      description: Update the 'is_onboarded' column in the 'account' collection.
+    - name: isSuspended
+      type: UpdateColumnAccountIsSuspended
+      description: Update the 'is_suspended' column in the 'account' collection.
+    - name: isVerified
+      type: UpdateColumnAccountIsVerified
+      description: Update the 'is_verified' column in the 'account' collection.
+    - name: memberId
+      type: UpdateColumnAccountMemberId
+      description: Update the 'member_id' column in the 'account' collection.
+    - name: ssoProviders
+      type: UpdateColumnAccountSsoProviders
+      description: Update the 'sso_providers' column in the 'account' collection.
+    - name: suspendedAt
+      type: UpdateColumnAccountSuspendedAt
+      description: Update the 'suspended_at' column in the 'account' collection.
+    - name: suspendedBy
+      type: UpdateColumnAccountSuspendedBy
+      description: Update the 'suspended_by' column in the 'account' collection.
+    - name: suspendedReason
+      type: UpdateColumnAccountSuspendedReason
+      description: Update the 'suspended_reason' column in the 'account' collection.
+    - name: updatedAt
+      type: UpdateColumnAccountUpdatedAt
+      description: Update the 'updated_at' column in the 'account' collection.
+    - name: updatedBy
+      type: UpdateColumnAccountUpdatedBy
+      description: Update the 'updated_by' column in the 'account' collection.
+    - name: verifiedAt
+      type: UpdateColumnAccountVerifiedAt
+      description: Update the 'verified_at' column in the 'account' collection.
+  graphql:
+    typeName: UpdateAccountByIdUpdateColumns
+    inputTypeName: UpdateAccountByIdUpdateColumnsInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_account_by_id_update_columns
+      fieldMapping:
+        createdAt:
+          column:
+            name: created_at
+        createdBy:
+          column:
+            name: created_by
+        customerId:
+          column:
+            name: customer_id
+        deletedAt:
+          column:
+            name: deleted_at
+        deletedBy:
+          column:
+            name: deleted_by
+        id:
+          column:
+            name: id
+        isOnboarded:
+          column:
+            name: is_onboarded
+        isSuspended:
+          column:
+            name: is_suspended
+        isVerified:
+          column:
+            name: is_verified
+        memberId:
+          column:
+            name: member_id
+        ssoProviders:
+          column:
+            name: sso_providers
+        suspendedAt:
+          column:
+            name: suspended_at
+        suspendedBy:
+          column:
+            name: suspended_by
+        suspendedReason:
+          column:
+            name: suspended_reason
+        updatedAt:
+          column:
+            name: updated_at
+        updatedBy:
+          column:
+            name: updated_by
+        verifiedAt:
+          column:
+            name: verified_at
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateAccountByIdUpdateColumns
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - createdAt
+          - createdBy
+          - customerId
+          - deletedAt
+          - deletedBy
+          - id
+          - isOnboarded
+          - isSuspended
+          - isVerified
+          - memberId
+          - ssoProviders
+          - suspendedAt
+          - suspendedBy
+          - suspendedReason
+          - updatedAt
+          - updatedBy
+          - verifiedAt
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: UpdateAccountByIdResponse
+  description: Responses from the 'update_account_by_id' procedure
+  fields:
+    - name: affectedRows
+      type: Int4!
+      description: The number of rows affected by the mutation
+    - name: returning
+      type: "[Account!]!"
+      description: Data from rows affected by the mutation
+  graphql:
+    typeName: UpdateAccountByIdResponse
+    inputTypeName: UpdateAccountByIdResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: update_account_by_id_response
+      fieldMapping:
+        affectedRows:
+          column:
+            name: affected_rows
+        returning:
+          column:
+            name: returning
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: UpdateAccountByIdResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - affectedRows
+          - returning
+
+---
+kind: Command
+version: v1
+definition:
+  name: UpdateAccountById
+  outputType: UpdateAccountByIdResponse!
+  arguments:
+    - name: keyId
+      type: Uuid!
+    - name: postCheck
+      type: AccountBoolExp
+      description: Update permission post-condition predicate over the 'account' collection
+    - name: preCheck
+      type: AccountBoolExp
+      description: Update permission pre-condition predicate over the 'account' collection
+    - name: updateColumns
+      type: UpdateAccountByIdUpdateColumns!
+  source:
+    dataConnectorName: postgres_connector
+    dataConnectorCommand:
+      procedure: update_account_by_id
+    argumentMapping:
+      keyId: key_id
+      postCheck: post_check
+      preCheck: pre_check
+      updateColumns: update_columns
+  graphql:
+    rootFieldName: updateAccountById
+    rootFieldKind: Mutation
+  description: Update any row on the 'account' collection using the 'id' key
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: UpdateAccountById
+  permissions:
+    - role: admin
+      allowExecution: true
+

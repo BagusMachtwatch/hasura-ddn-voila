@@ -1,0 +1,18 @@
+kind: Subgraph
+version: v2
+definition:
+  name: voilaLog
+  generator:
+    rootPath: .
+  includePaths:
+    - metadata
+  envMapping:
+    VOILALOG_MONGO_CONNECTOR_AUTHORIZATION_HEADER:
+      fromEnv: VOILALOG_MONGO_CONNECTOR_AUTHORIZATION_HEADER
+    VOILALOG_MONGO_CONNECTOR_READ_URL:
+      fromEnv: VOILALOG_MONGO_CONNECTOR_READ_URL
+    VOILALOG_MONGO_CONNECTOR_WRITE_URL:
+      fromEnv: VOILALOG_MONGO_CONNECTOR_WRITE_URL
+  connectors:
+    - path: connector/mongo_connector/connector.yaml
+      connectorLinkName: mongo_connector
