@@ -1,0 +1,59 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: CustomerDomainCart
+  fields:
+    - name: domain
+      type: Text
+    - name: total
+      type: Numeric
+  graphql:
+    typeName: CustomerDomainCart
+  dataConnectorTypeMapping:
+    - dataConnectorName: postgres_connector
+      dataConnectorObjectType: customer_domain_cart
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: CustomerDomainCart
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - domain
+          - total
+
+---
+kind: Model
+version: v1
+definition:
+  name: CustomerDomainCart
+  objectType: CustomerDomainCart
+  source:
+    dataConnectorName: postgres_connector
+    collection: customer_domain_cart
+  orderableFields:
+    - fieldName: domain
+      orderByDirections:
+        enableAll: true
+    - fieldName: total
+      orderByDirections:
+        enableAll: true
+  graphql:
+    selectMany:
+      queryRootField: customerDomainCart
+    selectUniques: []
+
+---
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: CustomerDomainCart
+  permissions:
+    - role: admin
+      select:
+        filter: null
+

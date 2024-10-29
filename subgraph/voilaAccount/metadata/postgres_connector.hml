@@ -1223,6 +1223,20 @@ definition:
                 underlying_type:
                   type: named
                   name: int4
+        customer_domain_cart:
+          fields:
+            domain:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            total:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
         delete_account_by_id_response:
           description: Responses from the 'delete_account_by_id' procedure
           fields:
@@ -2853,6 +2867,11 @@ definition:
               column_mapping:
                 customer_id: id
               foreign_collection: customer
+        - name: customer_domain_cart
+          arguments: {}
+          type: customer_domain_cart
+          uniqueness_constraints: {}
+          foreign_keys: {}
       functions: []
       procedures:
         - name: delete_account_by_id

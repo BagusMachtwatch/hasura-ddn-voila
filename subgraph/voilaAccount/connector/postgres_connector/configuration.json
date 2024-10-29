@@ -1481,7 +1481,33 @@
       "composite": {}
     },
     "nativeOperations": {
-      "queries": {},
+      "queries": {
+        "customer_domain_cart": {
+          "sql": {
+            "file": "native_operations/queries/customer_domain_chart.sql"
+          },
+          "columns": {
+            "domain": {
+              "name": "domain",
+              "type": {
+                "scalarType": "text"
+              },
+              "nullable": "nullable",
+              "description": null
+            },
+            "total": {
+              "name": "total",
+              "type": {
+                "scalarType": "numeric"
+              },
+              "nullable": "nullable",
+              "description": null
+            }
+          },
+          "arguments": {},
+          "description": null
+        }
+      },
       "mutations": {}
     }
   },
