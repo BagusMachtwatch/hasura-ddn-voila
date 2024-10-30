@@ -1482,9 +1482,9 @@
     },
     "nativeOperations": {
       "queries": {
-        "customer_domain_cart": {
+        "customer_email_chart": {
           "sql": {
-            "file": "native_operations/queries/customer_domain_chart.sql"
+            "file": "native_operations/queries/customer_email_chart.sql"
           },
           "columns": {
             "domain": {

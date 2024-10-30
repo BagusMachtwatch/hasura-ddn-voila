@@ -2,23 +2,23 @@
 kind: ObjectType
 version: v1
 definition:
-  name: CustomerDomainCart
+  name: CustomerEmailChart
   fields:
     - name: domain
       type: Text
     - name: total
       type: Numeric
   graphql:
-    typeName: CustomerDomainCart
+    typeName: CustomerEmailChart
   dataConnectorTypeMapping:
     - dataConnectorName: postgres_connector
-      dataConnectorObjectType: customer_domain_cart
+      dataConnectorObjectType: customer_email_chart
 
 ---
 kind: TypePermissions
 version: v1
 definition:
-  typeName: CustomerDomainCart
+  typeName: CustomerEmailChart
   permissions:
     - role: admin
       output:
@@ -30,11 +30,11 @@ definition:
 kind: Model
 version: v1
 definition:
-  name: CustomerDomainCart
-  objectType: CustomerDomainCart
+  name: CustomerEmailChart
+  objectType: CustomerEmailChart
   source:
     dataConnectorName: postgres_connector
-    collection: customer_domain_cart
+    collection: customer_email_chart
   orderableFields:
     - fieldName: domain
       orderByDirections:
@@ -44,14 +44,14 @@ definition:
         enableAll: true
   graphql:
     selectMany:
-      queryRootField: customerDomainCart
+      queryRootField: customerEmailChart
     selectUniques: []
 
 ---
 kind: ModelPermissions
 version: v1
 definition:
-  modelName: CustomerDomainCart
+  modelName: CustomerEmailChart
   permissions:
     - role: admin
       select:

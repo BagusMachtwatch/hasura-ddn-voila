@@ -1223,7 +1223,7 @@ definition:
                 underlying_type:
                   type: named
                   name: int4
-        customer_domain_cart:
+        customer_email_chart:
           fields:
             domain:
               type:
@@ -2867,9 +2867,9 @@ definition:
               column_mapping:
                 customer_id: id
               foreign_collection: customer
-        - name: customer_domain_cart
+        - name: customer_email_chart
           arguments: {}
-          type: customer_domain_cart
+          type: customer_email_chart
           uniqueness_constraints: {}
           foreign_keys: {}
       functions: []
